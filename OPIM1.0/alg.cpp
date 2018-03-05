@@ -240,7 +240,7 @@ double Alg::effic_inf_valid_algo()
 double Alg::effic_inf_valid_algo(const Nodelist vecSeed)
 {
 	Timer EvalTimer;
-	std::cout << "  >>>Evaluating influence in [0.99,1.01]*EPT with prob. 99.9\%...\n";
+	std::cout << "  >>>Evaluating influence in [0.99,1.01]*EPT with prob. 99.9%...\n";
 	const auto inf = __hyperG.effic_inf_valid_algo(vecSeed);
 	//const auto inf = __hyperGVldt.effic_inf_valid_algo(vecSeed);
 	std::cout << "  >>>Down! influence: " << inf << ", time used (sec): " << EvalTimer.get_total_time() << '\n';

@@ -43,7 +43,7 @@ public:
 		}
 		for (auto idx = 0; idx < numV; idx++)
 		{
-			vecInDeg[idx] = vecGRev.size();
+			vecInDeg[idx] = vecGRev[idx].size();
 		}
 		if (m1 == 'g')
 		{
