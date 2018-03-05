@@ -10,16 +10,16 @@ public:
 	float _probEdge = float(0.1); // For the UNI setting, every edge has the same diffusion probability.
 	double _eps = 0.1; // Error threshold 1-1/e-epsilon. 
 	double _delta = -1.0; // Failure probability delta. Default is 1/#nodes.
+	CascadeModel _model = IC; // Cascade models: IC, LT. Default is IC.
 	std::string _graphname = "facebook"; // Graph name. Default is "facebook".
 	std::string _mode = "g"; // Format graph --> g: graph only [default, using WC], w: with edge property.
 							 // OPIM or OPIM-C --> 0: vanilla, 1: last-bound, 2: min-bound [default].  
 	std::string _dir = "graphInfo"; // Directory
-	std::string _outFileName; // File name of the result
 	std::string _resultFolder = "result"; // Result folder. Default is "test".
 	std::string _algName = "OPIM"; // Algorithm. Default is oneHop.
 	std::string _probDist = "load"; // Probability distribution for diffusion model. Option: load, WC, TR, UNI. Default is loaded from the file.
-	CascadeModel _model = IC; // Cascade models: IC, LT. Default is IC.
-
+	std::string _outFileName; // File name of the result
+	
 	Argument(int argc, char* argv[])
 	{
 		std::string param, value;
@@ -35,13 +35,13 @@ public:
 			else if (!param.compare("-pedge")) _probEdge = stof(value);
 			else if (!param.compare("-eps")) _eps = stod(value);
 			else if (!param.compare("-delta")) _delta = stod(value);
+			else if (!param.compare("-model")) _model = value == "LT" ? LT : IC;
 			else if (!param.compare("-gname")) _graphname = value;
 			else if (!param.compare("-mode")) _mode = value;
 			else if (!param.compare("-dir")) _dir = value;
 			else if (!param.compare("-outpath")) _resultFolder = value;
 			else if (!param.compare("-alg")) _algName = value;
 			else if (!param.compare("-pdist")) _probDist = value;
-			else if (!param.compare("-model")) _model = value == "LT" ? LT : IC;
 		}
 		std::string postfix = "_minBound"; // Default is to use the minimum upper bound among all the rounds
 		if (_mode == "0" || _mode == "vanilla")
