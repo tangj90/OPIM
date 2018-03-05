@@ -69,7 +69,7 @@ For example,
   + **-mode=1**: Only use the upper bound in the last round.
   + **-mode=2** *[default]*: Use the minimum upper bound among all the rounds.
 
-	The following options are valid for *-func=1* or *-func=2*.
+#### The following options are valid for *-func=1* or *-func=2*.
 
 - **-outpath=string**
 
