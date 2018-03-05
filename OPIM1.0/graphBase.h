@@ -26,7 +26,8 @@ public:
 			return;
 		}
 		fscanf_s(fin, "%zu%zu", &numV, &numE);
-		Graph vecG(numV), vecGRev(numV);
+		//Graph vecG(numV);
+		Graph vecGRev(numV);
 		std::vector<size_t> vecInDeg(numV);
 		for (auto i = numE; i--;)
 		{
@@ -38,7 +39,7 @@ public:
 			{
 				fscanf_s(fin, "%u%u", &srcId, &dstId);
 			}
-			vecG[srcId].push_back(Edge(dstId, weight));
+			//vecG[srcId].push_back(Edge(dstId, weight));
 			vecGRev[dstId].push_back(Edge(srcId, weight));
 		}
 		for (auto idx = 0; idx < numV; idx++)
@@ -48,13 +49,13 @@ public:
 		if (m1 == 'g')
 		{
 			// When the input is a graph only, set the diffusion probability using WC setting
-			for (auto& nbrs : vecG)
-			{
-				for (auto& nbr : nbrs)
-				{
-					nbr.second = (float)1.0 / vecInDeg[nbr.first];
-				}
-			}
+			//for (auto& nbrs : vecG)
+			//{
+			//	for (auto& nbr : nbrs)
+			//	{
+			//		nbr.second = (float)1.0 / vecInDeg[nbr.first];
+			//	}
+			//}
 			auto idx = 0;
 			for (auto& inNbrs : vecGRev)
 			{
@@ -66,7 +67,7 @@ public:
 				}
 			}
 		}
-		TIO::save_graph_struct(filename, vecG, false);
+		//TIO::save_graph_struct(filename, vecG, false);
 		TIO::save_graph_struct(filename, vecGRev, true);
 		std::cout << "The graph is formatted!" << std::endl;
 	}
