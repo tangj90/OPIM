@@ -290,3 +290,6 @@ __pycache__/
 # VS code
 .vscode/
 *.code-workspace
+
+# Result folder
+result/
