@@ -1,4 +1,4 @@
-# OPIM
+# OPIM version 1.1
 This project implements the OPIM and OPIM-C algorithms for the following paper:
 - Jing Tang, Xueyan Tang, Xiaokui Xiao, Junsong Yuan, "Online Processing Algorithms for Influence Maximization," in Proc. ACM SIGMOD, 2018.
 
