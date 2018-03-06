@@ -10,9 +10,9 @@ Note: `c++1x` is required.
 
 **_Before running influence maximization algorithms, please format the graph first!_**
 
-Execute the command: `{your_exec} [options]`. `{your_exec}` may be `OPIM1.1.o` under **\*nix** or `OPIM1.1.exe` under **Windows**. See some sample codes in **sample-code.sh** or **sample-code.bat**.
+Execute the command: `{your_exec} [options]`. `{your_exec}` may be `OPIM1.1.o` under **\*nix** or `OPIM1.1.exe` under **Windows**.
 
-For example,
+See some sample codes in **sample-code.sh** or **sample-code.bat**. For example,
 
 - Format the graph with the WC setting: 
 
