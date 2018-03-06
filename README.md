@@ -3,33 +3,36 @@ This project implements the OPIM and OPIM-C algorithms for the following paper:
 - Jing Tang, Xueyan Tang, Xiaokui Xiao, Junsong Yuan, "Online Processing Algorithms for Influence Maximization," in Proc. ACM SIGMOD, 2018.
 
 **Author: Jing Tang (Nanyang Technological University)**
->Development platform: Windows Visual Studio 2017.
+> Cross-platform supported, including **\*nix** and **Windows** systems!\
+Under **\*nix** system, compile and build codes:\
+`g++ -std=c++14 -O3 OPIM.cpp -o OPIM1.1.o`\
+Note: `c++1x` is required.
 
 **_Before running influence maximization algorithms, please format the graph first!_**
 
-Execute the command: `OPIM1.0.exe [options]`
+Execute the command: `{your_exec} [options]`. `{your_exec}` may be `OPIM1.1.o` under **\*nix** or `OPIM1.1.exe` under **Windows**. See some sample codes in **sample-code.sh** or **sample-code.bat**.
 
 For example,
 
 - Format the graph with the WC setting: 
 
-	`OPIM1.0.exe -func=0 -gname=facebook`
+	`{your_exec} -func=0 -gname=facebook`
 
 - Run the OPIM algorithm using the minimum bound among all the rounds to select 50 nodes and report its solution quality (approximation guarantee) when 1000 RR sets are generated under the IC model (diffusion probability is loaded directly from the file, which is the WC setting if the graph is formatted in the above procedure):
 
-	`OPIM1.0.exe -func=1 -gname=facebook -alg=opim -mode=2 -seedsize=50 -samplesize=1000`
+	`{your_exec} -func=1 -gname=facebook -alg=opim -mode=2 -seedsize=50 -samplesize=1000`
 
 - Run the vanilla OPIM algorithm to select 100 nodes and report its solution quality when 1024000 RR sets are generated under the LT-WC model:
 
-	`OPIM1.0.exe -func=1 -gname=facebook -alg=opim -mode=0 -seedsize=100 -samplesize=1024000 -model=LT -pdist=WC`
+	`{your_exec} -func=1 -gname=facebook -alg=opim -mode=0 -seedsize=100 -samplesize=1024000 -model=LT -pdist=WC`
 
 - Run the OPIM-C algorithm using the minumum upper bound to select 50 nodes under the IC model:
 
-	`OPIM1.0.exe -func=1 -gname=facebook -alg=opim-c -mode=2 -seedsize=50 -eps=0.01 -model=IC -pdist=load`
+	`{your_exec} -func=1 -gname=facebook -alg=opim-c -mode=2 -seedsize=50 -eps=0.01 -model=IC -pdist=load`
 
 - Run the OPIM-C algorithm using the upper bound in the last round to select 500 nodes under the IC model:
 
-	`OPIM1.0.exe -func=1 -gname=facebook -alg=opim-c -mode=1 -seedsize=50 -eps=0.01 -model=IC -pdist=load`
+	`{your_exec} -func=1 -gname=facebook -alg=opim-c -mode=1 -seedsize=50 -eps=0.01 -model=IC -pdist=load`
 
 ### Options
 - **-func=integer**
