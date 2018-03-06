@@ -36,9 +36,6 @@
     <ClInclude Include="timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SFMT\dSFMT\dSFMT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IOcontroller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,6 +51,9 @@
     <ClInclude Include="hyperGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SFMT\dSFMT\dSFMT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -62,10 +62,10 @@
     <ClCompile Include="OPIM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\SFMT\dSFMT\dSFMT.c">
+    <ClCompile Include="alg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="alg.cpp">
+    <ClCompile Include="SFMT\dSFMT\dSFMT.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
