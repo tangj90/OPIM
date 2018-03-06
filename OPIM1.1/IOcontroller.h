@@ -1,9 +1,9 @@
 #pragma once
 
 #ifdef _WIN32
-	#include <windows.h>
+#include <windows.h>
 #else
- 	#include <sys/stat.h>
+#include <sys/stat.h>
 #endif
 
 class IOcontroller
@@ -11,11 +11,11 @@ class IOcontroller
 public:
 	static void mkdir_absence(const char* outFolder)
 	{
-		#if defined(_WIN32)
-  			CreateDirectoryA(outFolder, nullptr); // can be used on Windows
-		#else
-			mkdir(outFolder, 0733); // can be used on non-Windows
-		#endif
+#if defined(_WIN32)
+		CreateDirectoryA(outFolder, nullptr); // can be used on Windows
+#else
+		mkdir(outFolder, 0733); // can be used on non-Windows
+#endif
 	}
 
 	/// Save a serialized file
@@ -84,7 +84,7 @@ public:
 
 	/// Get out-file name
 	static std::string get_out_file_name(const std::string graphName, const std::string algName, const int seedsize,
-	                                     const std::string probDist, const float probEdge)
+		const std::string probDist, const float probEdge)
 	{
 		if (probDist == "UNI")
 		{
@@ -112,7 +112,7 @@ public:
 		std::cout << "  |#Seeds: " << seedSize << std::endl;
 		std::cout << "  |#RR sets: " << RRsetsSize << std::endl;
 		std::cout << "   --------------------" << std::endl;
-	 	mkdir_absence(outFolder.c_str());
+		mkdir_absence(outFolder.c_str());
 		std::ofstream outFileNew(outFolder + "/" + outFileName);
 		if (outFileNew.is_open())
 		{
@@ -130,9 +130,9 @@ public:
 	static void write_order_seeds(const std::string& outFileName, const TResult& resultObj, const std::string& outFolder)
 	{
 		auto vecSeed = resultObj.get_seed_vec();
-	 	mkdir_absence(outFolder.c_str());
+		mkdir_absence(outFolder.c_str());
 		const auto outpath = outFolder + "/seed";
-	 	mkdir_absence(outpath.c_str());
+		mkdir_absence(outpath.c_str());
 		std::ofstream outFile(outpath + "/seed_" + outFileName);
 		for (auto i = 0; i < vecSeed.size(); i++)
 		{

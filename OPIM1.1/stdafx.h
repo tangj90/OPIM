@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #ifdef _WIN32
-    #include <tchar.h>
+#include <tchar.h>
 #endif
 
 
@@ -30,7 +30,7 @@
 
 #if !defined(DSFMT_MEXP)
 #ifdef __GNUC__
-  #define DSFMT_MEXP 19937
+#define DSFMT_MEXP 19937
 #endif
 #endif
 #include "SFMT/dSFMT/dSFMT.h"
