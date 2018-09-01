@@ -27,7 +27,7 @@ double Alg::max_cover_lazy(const int targetSize, const int mode)
 	std::vector<bool> edgeMark(__numRRsets, false);
 
 	__vecSeed.clear();
-	for (auto deg = maxDeg + 1; deg--;)
+	for (auto deg = maxDeg; deg > 0; deg--) // Enusre deg > 0
 	{
 		auto& vecNode = degMap[deg];
 		for (auto idx = vecNode.size(); idx--;)
@@ -91,14 +91,12 @@ double Alg::max_cover_lazy(const int targetSize, const int mode)
 						}
 					}
 				}
-				__boundLast = double(accumulate(vecBound.begin(), vecBound.end(), size_t(0)) + sumInf);
+				__boundLast = double(accumulate(vecBound.begin(), vecBound.end(), size_t(0)) + sumInf) * __numV / __numRRsets;
 				if (__boundMin > __boundLast) __boundMin = __boundLast;
 			}
 			if (__vecSeed.size() >= targetSize)
 			{
 				// Top-k influential nodes constructed
-				__boundMin *= 1.0 * __numV / __numRRsets;
-				__boundLast *= 1.0 * __numV / __numRRsets;
 				const auto finalInf = 1.0 * sumInf * __numV / __numRRsets;
 				std::cout << "  >>>[greedy-lazy] influence: " << finalInf << ", min-bound: " << __boundMin <<
 					", last-bound: " << __boundLast << '\n';
